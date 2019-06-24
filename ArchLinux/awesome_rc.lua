@@ -119,10 +119,14 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
 --]]
 -- 创建一个favorite子菜单
 myfavoriteapps = {
-    { "VsCode", "code" },
     { "LeaNote", "leanote" },
     { "FileMgr", "pcmanfm" },
     { "TskMgr", "gnome-system-monitor" },
+}
+mydeveloptools={
+    {"PyCharm", "pycharm" },
+    {"IntelliJ IDEA", "idea" },
+    { "VsCode", "code" },
 }
 
 myenjoyapps = {
@@ -133,6 +137,7 @@ mymainmenu = awful.menu({ items = {
     { "awesome", myawesomemenu, beautiful.awesome_icon },
     -- 添加Favorite菜单，并将icon设置为theme.fav_icon
     { "Favorite", myfavoriteapps},
+    {"Developing",mydeveloptools},
     { "Enjoy", myenjoyapps},
     --{ "Home", "dolphin" , theme.home_icon },
     -- 添加Emacs菜单项

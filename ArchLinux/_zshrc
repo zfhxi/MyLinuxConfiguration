@@ -102,3 +102,4 @@ alias sql="systemctl status mssql-server"
 alias cls="printf \"\033c\""
 alias vpy=". ~/.venvs/lpthw/bin/activate"
 alias reslightdm="sudo systemctl restart lightdm"
+export PATH=/opt/anaconda/bin:$PATH

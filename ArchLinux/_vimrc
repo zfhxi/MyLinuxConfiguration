@@ -265,3 +265,9 @@ set expandtab
 nnoremap <F2> :bn<CR>
 nnoremap <F3> :bp<CR>
 nmap wc :bd <CR>    "关闭当前标签
+
+"eclim
+"nmap <C-o> :ProjectsTree <CR>
+"nmap <C-l> :ProjectList <CR>
+"nmap <C-n> :ProjectCreate ./ -n java <CR>
+"let g:EclimCompletionMethod = 'omnifunc'
