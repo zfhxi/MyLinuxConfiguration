@@ -32,7 +32,6 @@ Below is my Archlinux workspace, without any special things, except the plain ba
 * 2019-11-13
 
 ![](https://img.woyun.ink/article/2019/11/13/DeepinScreenshot_select-area_20191113000544.png)
-![](https://img.woyun.ink/article/2019/11/13/DeepinScreenshot_select-area_20191113001034.png)
 
 * 2019-06-24
 
