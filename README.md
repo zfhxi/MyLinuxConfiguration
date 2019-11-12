@@ -12,8 +12,8 @@ The file tree as follow:
 │   └── user
 │       ├── _clang-format
 │       ├── _config
-│       │   └── awesome
-│       │       └── rc.lua
+│       │   ├── awesome
+│       │   └── awesome_v1.0
 │       ├── _vimrc
 │       ├── _xprofile
 │       ├── _Xresource
@@ -24,18 +24,17 @@ The file tree as follow:
     └── share
         └── fonts
             └── vista
-                ├── Coronet-Italic.ttf
-                ├── Meslo-LG-Powerline.otf
-                ├── Rajdhani-Bold.ttf
-                ├── Rajdhani-Light.ttf
-                ├── Rajdhani-Medium.ttf
-                ├── Rajdhani-Regular.ttf
-                ├── Rajdhani-SemiBold.ttf
-                ├── SimHei.ttf
-                └── YaHeiConsolas.ttf
 ```
 
 # Sample
 Below is my Archlinux workspace, without any special things, except the plain background. Maybe I am a little lazy for beautifying my desktop.
 
+* 2019-11-13
+
+![](https://img.woyun.ink/article/2019/11/13/DeepinScreenshot_select-area_20191113000544.png)
+![](https://img.woyun.ink/article/2019/11/13/DeepinScreenshot_select-area_20191113001034.png)
+
+* 2019-06-24
+
 ![](https://img.woyun.ink/article/2019/6/24/DeepinScreenshot_select-area_20190624160826.png)
+
