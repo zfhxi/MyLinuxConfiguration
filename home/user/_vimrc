@@ -18,6 +18,7 @@ Plugin 'iamcco/markdown-preview.vim' "MarkDown预览
 Plugin 'iamcco/mathjax-support-for-mkdp' "support mathjax
 Plugin 'jiangmiao/auto-pairs'       "括号补全、引号补全
 Plugin 'oplatek/Conque-Shell' "the bash inside vim
+Plugin 'acarapetis/vim-colors-github' "vim theme
 call vundle#end()
 filetype plugin indent on    " 加载vim自带和插件相应的语法和文件类型相关脚本
 
@@ -109,8 +110,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#whitespace#enabled=0   " 关闭空白符检测
 let g:airline_powerline_fonts=1 " 使用powerline打过补丁的字体
+"let g:airline_left_sep = '▶'
+"let g:airline_left_alt_sep = '❯'
+"let g:airline_right_sep = '◀'
 if !exists('g:airline_symbols')
     let g:airline_symbols={}
+    let g:airline_symbols.linenr = '¶'
 endif
 
 
@@ -227,7 +232,8 @@ func! CompileRunGcc()
 endfunc
 
 " 其他
-colorscheme monokai "设置主题为monokai
+" colorscheme monokai "设置主题为monokai
+colorscheme github "设置主题为github
 " 设置字符编码                                                                
 set encoding=utf-8
 set termencoding=utf-8
