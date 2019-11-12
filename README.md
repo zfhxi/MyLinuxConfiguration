@@ -33,6 +33,8 @@ Below is my Archlinux workspace, without any special things, except the plain ba
 
 ![](https://img.woyun.ink/article/2019/11/13/DeepinScreenshot_select-area_20191113000544.png)
 
+Reference: <https://github.com/lcpz/awesome-copycats>
+
 * 2019-06-24
 
 ![](https://img.woyun.ink/article/2019/6/24/DeepinScreenshot_select-area_20190624160826.png)
