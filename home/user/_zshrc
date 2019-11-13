@@ -118,6 +118,8 @@ unset __conda_setup
 # conda deactivate
 # <<< conda initialize <<<
 
+alias smboff="sudo systemctl stop smb.service"
+alias smbon="sudo systemctl start smb.service"
 export VISUAL="vim"
 alias cls="printf \"\033c\""
 alias gpuon="sudo tee /proc/acpi/bbswitch <<< ON"
@@ -130,4 +132,3 @@ alias vmautoon="sudo systemctl enable vmware-networks.service  vmware-usbarbitra
 alias vmautooff="sudo systemctl disable vmware-networks.service  vmware-usbarbitrator.service vmware-hostd.service"
 alias vmoff="sudo systemctl stop vmware-networks.service  vmware-usbarbitrator.service vmware-hostd.service"
 alias vmstat="systemctl status vmware-networks.service  vmware-usbarbitrator.service vmware-hostd.service"
-export vmip="clin@172.16.57.134"
