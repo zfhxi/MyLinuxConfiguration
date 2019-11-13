@@ -14,8 +14,10 @@ The file tree as follow:
 │       ├── _config
 │       │   ├── awesome
 │       │   └── awesome_v1.0
+│       ├── _nvidia-xinitrc
+│       ├── _pam_environment
 │       ├── _vimrc
-│       ├── _xprofile
+│       ├── _xinitrc
 │       ├── _Xresource
 │       ├── _ycm_extra_conf.py
 │       └── _zshrc
