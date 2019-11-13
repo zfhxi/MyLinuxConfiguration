@@ -206,44 +206,44 @@ awful.util.myapplicationsmenu = freedesktop.menu.build({
 myfavoriteapps = {
     { "Story-Writer", "story-writer" },
     { "FileMgr", "pcmanfm" },
-    { "TskMgr", "gnome-system-monitor" },
 }
 mydeveloptools={
     {"PyCharm", "pycharm" },
     {"IDEA", "idea" },
     {"CLion", "clion" },
     { "VsCode", "code" },
-}
-
-myembeddedtools={
     {"Vivado","vivadoo"},
     {"Xilinx SDK","xilinx_SDK"},
 }
 
 mysystemtools={
     {"VM Ware", "vmware" },
-    { "v2ray", "v2ray" },
+    { "FileMgr", "pcmanfm" },
 }
 myenjoyapps = {
     { "163Music", "netease-cloud-music" },
+}
+myofficeapps={
     { "Telegram", "telegram" },
     { "WeChat", "electronic-wechat" },
+    {"wps","wps"},
+    { "Story-Writer", "story-writer" },
+}
+myinternettools={
+    { "Chrome", "google-chrome-stable" },
+    { "Chrome_ssr", "mychrome" },
+    { "v2ray", "v2ray" },
 }
 
 awful.util.mymainmenu = awful.menu({ items = {
     { "awesome", myawesomemenu, beautiful.awesome_icon },
     -- 添加Favorite菜单，并将icon设置为theme.fav_icon
     { "Favorite", myfavoriteapps},
-    {"Tools",mydeveloptools},
-    {"SysTools",mysystemtools},
-    {"Embedded",myembeddedtools},
+    {"Develop",mydeveloptools},
+    {"System",mysystemtools},
+    { "Office", myofficeapps},
     { "Enjoy", myenjoyapps},
-    --{ "Home", "dolphin" , theme.home_icon },
-    -- 添加Emacs菜单项
-    --{ "Emacs", "emacs" },
-    -- 添加Chrome菜单项
-    { "Chrome", "google-chrome-stable" },
-    { "Chrome_ssr", "mychrome" },
+    {"Internet",myinternettools},
     { "Reboot", "reboot" },
     -- 添加一个关机对话框
     { "Halt", "shutdown -h now" }
@@ -825,5 +825,4 @@ run_once("nm-applet")
 run_once("blueman-applet")
 --run_once("mate-power-manager")
 run_once("xcompmgr")
---run_once("/usr/lib/cinnamon-settings-daemon/csd-xsettings")
 run_once("xrandr --output HDMI-0 --auto --left-of eDP-1-1")
