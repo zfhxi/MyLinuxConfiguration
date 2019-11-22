@@ -236,19 +236,21 @@ myinternettools={
     { "Chrome_ssr", "mychrome" },
     { "v2ray", "v2ray" },
 }
+mysysopmenu={
+    { "Reboot", "reboot" },
+    { "Halt", "shutdown -h now" },
+}
 
 awful.util.mymainmenu = awful.menu({ items = {
-    { "awesome", myawesomemenu, beautiful.awesome_icon },
+    {"awesome", myawesomemenu, beautiful.awesome_icon },
     -- 添加Favorite菜单，并将icon设置为theme.fav_icon
-    { "Favorite", myfavoriteapps},
+    {"Favorite", myfavoriteapps},
     {"Develop",mydeveloptools},
     {"System",mysystemtools},
-    { "Office", myofficeapps},
-    { "Enjoy", myenjoyapps},
+    {"Office", myofficeapps},
+    {"Enjoy", myenjoyapps},
     {"Internet",myinternettools},
-    { "Reboot", "reboot" },
-    -- 添加一个关机对话框
-    { "Halt", "shutdown -h now" }
+    {"Power",mysysopmenu},
 }
 })
 
@@ -824,3 +826,9 @@ run_once("fcitx")
 run_once("nm-applet")
 run_once("blueman-applet")
 run_once("xcompmgr")
+
+function sleep(n)
+   os.execute("sleep " .. n)
+end
+sleep(1)
+run_once("xrandr --output HDMI-0 --auto --left-of eDP-1-1")
