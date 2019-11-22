@@ -206,6 +206,7 @@ awful.util.myapplicationsmenu = freedesktop.menu.build({
 myfavoriteapps = {
     { "Story-Writer", "story-writer" },
     { "FileMgr", "pcmanfm" },
+    { "Leanote", "leanote" },
 }
 mydeveloptools={
     {"PyCharm", "pycharm" },
@@ -228,6 +229,7 @@ myofficeapps={
     { "WeChat", "electronic-wechat" },
     {"wps","wps"},
     { "Story-Writer", "story-writer" },
+    { "Leanote", "leanote" },
 }
 myinternettools={
     { "Chrome", "google-chrome-stable" },
@@ -814,7 +816,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 function run_once(prg)
-    awful.util.spawn_with_shell("pgrep -u $USER -x " .. prg .. " || (" .. prg .. ")")
+    awful.spawn.with_shell("pgrep -u $USER -x " .. prg .. " || (" .. prg .. ")")
 end
 run_once("gnome-screensaver")
 run_once("xrdb .Xresource")
@@ -822,4 +824,3 @@ run_once("fcitx")
 run_once("nm-applet")
 run_once("blueman-applet")
 run_once("xcompmgr")
-run_once("xrandr --output HDMI-0 --auto --left-of eDP-1-1")
