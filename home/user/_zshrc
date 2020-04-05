@@ -3,13 +3,15 @@ ZSH_DISABLE_COMPFIX=true
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/julian/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
+ZSH_THEME="agnosterzak"
+# ZSH_THEME="classyTouch"
 SOLARIZED_THEME="light"
 
 # Set list of themes to pick from when loading at random
@@ -99,36 +101,42 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /home/julian/.oh-my-zsh/plugins/incr/incr*.zsh
+source ~/.oh-my-zsh/plugins/incr/incr*.zsh
+
+
+# solve 'Could not open a connection to your authentication agent.'
+# {
+# eval `ssh-agent -s`
+# ssh-add /home/julian/.ssh/github_zfhxi
+# } &> /home/julian/AppLogs/ssh-agent.log
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/julian/Apps/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-__conda_setup="$('shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/julian/Apps/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/julian/Apps/anaconda3/etc/profile.d/conda.sh"
+function condainit(){
+    __conda_setup="$('/opt/anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
     else
-        export PATH="/home/julian/Apps/anaconda3/bin:$PATH"
+        if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
+            . "/opt/anaconda/etc/profile.d/conda.sh"
+        else
+            export PATH="/opt/anaconda/bin:$PATH"
+        fi
     fi
-fi
-unset __conda_setup
-# conda deactivate
+    unset __conda_setup
+}
 # <<< conda initialize <<<
 
+export VISUAL="vim"
+
+# user's alias
 alias smboff="sudo systemctl stop smb.service"
 alias smbon="sudo systemctl start smb.service"
-export VISUAL="vim"
 alias cls="printf \"\033c\""
-alias gpuon="sudo tee /proc/acpi/bbswitch <<< ON"
-alias gpuoff="sudo tee /proc/acpi/bbswitch <<< OFF"
 alias guion="nvidia-xrun awesome"
 alias byview="xrandr --output HDMI-0 --auto --left-of eDP-1-1"
 alias byviewc="xrandr --output HDMI-0 --auto --same-as eDP-1-1"
-alias vmon="sudo systemctl start vmware-networks.service  vmware-usbarbitrator.service vmware-hostd.service"
-alias vmautoon="sudo systemctl enable vmware-networks.service  vmware-usbarbitrator.service vmware-hostd.service"
-alias vmautooff="sudo systemctl disable vmware-networks.service  vmware-usbarbitrator.service vmware-hostd.service"
-alias vmoff="sudo systemctl stop vmware-networks.service  vmware-usbarbitrator.service vmware-hostd.service"
-alias vmstat="systemctl status vmware-networks.service  vmware-usbarbitrator.service vmware-hostd.service"
+alias vmon="sudo systemctl start vmware.service  vmware-usbarbitrator.service vmware-workstation-server.service"
+alias vmoff="sudo systemctl stop vmware.service  vmware-usbarbitrator.service vmware-workstation-server.service"
+alias vmstat="systemctl status vmware.service  vmware-usbarbitrator.service vmware-workstation-server.service"
+alias refreshmirror="sudo reflector --verbose -l 5 --sort rate --save /etc/pacman.d/mirrorlist"

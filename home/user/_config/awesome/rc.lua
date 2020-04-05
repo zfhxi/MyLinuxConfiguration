@@ -204,37 +204,41 @@ awful.util.myapplicationsmenu = freedesktop.menu.build({
 })
 -- 创建一个favorite子菜单
 myfavoriteapps = {
-    { "Story-Writer", "story-writer" },
+    { "Story-Writer", "Story-writer" },
     { "FileMgr", "pcmanfm" },
-    { "Leanote", "leanote" },
+--    { "Leanote", "leanote" },
 }
 mydeveloptools={
-    {"PyCharm", "pycharm" },
-    {"IDEA", "idea" },
+    {"Qt Creator","qtcreator"},
+--    {"PyCharm", "pycharm" },
+--    {"IDEA", "intellij-idea-ultimate-edition" },
     {"CLion", "clion" },
-    { "VsCode", "code" },
-    {"Vivado","vivadoo"},
-    {"Xilinx SDK","xilinx_SDK"},
+    {"VsCode", "code" },
+    {"Vivado","myvivado"},
+    {"Xilinx Vitis","myvitis"},
+    {"Xilinx DocNav","mydocnav"},
+}
+
+mydataanalysistools={
+--    {"Matlab", "matlab" },
 }
 
 mysystemtools={
-    {"VM Ware", "vmware" },
+--    {"VM Ware", "vmware" },
     { "FileMgr", "pcmanfm" },
 }
 myenjoyapps = {
     { "163Music", "netease-cloud-music" },
 }
 myofficeapps={
-    { "Telegram", "telegram" },
-    { "WeChat", "electronic-wechat" },
-    {"wps","wps"},
+--    { "Telegram", "telegram-desktop" },
+    { "wps","wps"},
     { "Story-Writer", "story-writer" },
-    { "Leanote", "leanote" },
+--    { "Leanote", "leanote" },
 }
 myinternettools={
     { "Chrome", "google-chrome-stable" },
-    { "Chrome_ssr", "mychrome" },
-    { "v2ray", "v2ray" },
+    { "clashx", "myclash" },
 }
 mysysopmenu={
     { "Reboot", "reboot" },
@@ -247,6 +251,7 @@ awful.util.mymainmenu = awful.menu({ items = {
     {"Favorite", myfavoriteapps},
     {"Develop",mydeveloptools},
     {"System",mysystemtools},
+    {"DataAnalysis",mydataanalysistools},
     {"Office", myofficeapps},
     {"Enjoy", myenjoyapps},
     {"Internet",myinternettools},
@@ -599,6 +604,10 @@ end),
 awful.key({"Mod4"}, "Print",
 function ()
     awful.util.spawn('deepin-screenshot -s "/home/julian/Pictures/ScreenShot"')
+end),
+awful.key({"Mod4","Shift"}, "Print",
+function ()
+    awful.util.spawn('deepin-screenshot -f -s "/home/julian/Pictures/ScreenShot"')
 end)
 )
 
@@ -821,11 +830,14 @@ function run_once(prg)
     awful.spawn.with_shell("pgrep -u $USER -x " .. prg .. " || (" .. prg .. ")")
 end
 run_once("gnome-screensaver")
-run_once("xrdb .Xresource")
+run_once("xrdb /home/julian/.Xresource")
 run_once("fcitx")
 run_once("nm-applet")
 run_once("blueman-applet")
 run_once("xcompmgr")
+run_once("optimus-manager-qt")
+run_once("volumeicon")
+run_once("mate-power-manager")
 
 function sleep(n)
    os.execute("sleep " .. n)
