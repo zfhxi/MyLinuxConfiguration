@@ -1,5 +1,5 @@
 set nocompatible              " 去除VI一致性
-filetype off                  
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim	" 设置包括vundle和初始化相关的runtime path
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'	" 让vundle管理插件版本,必须
@@ -24,7 +24,7 @@ filetype plugin indent on    " 加载vim自带和插件相应的语法和文件�
 
 " ALE
 "使用键【\】作为leader
-let mapleader="\\" 
+let mapleader="\\"
 " 设置状态栏
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}\ %{ALEGetStatusLine()}
 "始终开启标志列
@@ -45,7 +45,7 @@ nmap sn <Plug>(ale_next_wrap)
 "<Leader>s触发/关闭语法检查
 nmap <Leader>s :ALEToggle<CR>
 "<Leader>d查看错误或警告的详细信息
-nmap <Leader>d :ALEDetail<CR> 
+nmap <Leader>d :ALEDetail<CR>
 "文件内容发生变化时不进行检查
 let g:ale_lint_on_text_changed = 'never'
 "打开文件时不进行检查
@@ -71,7 +71,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 0
 "字符串中也开启补全
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
-"开启基于tag的补全，可以在这之后添加需要的标签路径  
+"开启基于tag的补全，可以在这之后添加需要的标签路径
 let g:ycm_collect_identifiers_from_tags_files = 1
 "开始补全的字符数
 let g:ycm_min_num_of_chars_for_completion = 2
@@ -82,9 +82,9 @@ let g:ycm_cache_omnifunc=0
 "离开插入模式后自动关闭预览窗口
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "语法关键字补全
-let g:ycm_seed_identifiers_with_syntax = 1  
+let g:ycm_seed_identifiers_with_syntax = 1
 "整合UltiSnips的提示
-let g:ycm_use_ultisnips_completer = 1 
+let g:ycm_use_ultisnips_completer = 1
 "在实现和声明之间跳转,并分屏打开
 let g:ycm_goto_buffer_command = 'horizontal-split'
 nnoremap <Leader>g :YcmCompleter GoTo<CR>
@@ -234,38 +234,38 @@ endfunc
 " 其他
 " colorscheme monokai "设置主题为monokai
 colorscheme github "设置主题为github
-" 设置字符编码                                                                
+" 设置字符编码
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,chinese,cp936
-" 语法高亮                                                         
-syntax on                                                          
-" 检测文件类型                                                     
-filetype on                                                        
-" 根据文件类型加载对应的插件                                       
-filetype plugin on                                                 
-" 显示行号                                                      
-set number                                                      
-" 在第64列显示竖线                                                      
-" set cc=64                                                          
-" 高亮显示当前行                                                   
-set cursorline                                                     
-" 设置各种缩进                                                     
-set tabstop=4                                                      
-set softtabstop=4                                                  
-set shiftwidth=4                                                   
-set autoindent                                                     
-set smartindent                                                    
-set cindent                                                        
+" 语法高亮
+syntax on
+" 检测文件类型
+filetype on
+" 根据文件类型加载对应的插件
+filetype plugin on
+" 显示行号
+set number
+" 在第64列显示竖线
+" set cc=64
+" 高亮显示当前行
+set cursorline
+" 设置各种缩进
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent
+set smartindent
+set cindent
 set hlsearch
 "Code fold
 set foldmethod=indent
 set foldlevelstart=99
-" tab转换为空格                                                    
+" tab转换为空格
 set expandtab
-" 将ESC键映射为两次k键 
-"inoremap kk <Esc> 
+" 将ESC键映射为两次k键
+"inoremap kk <Esc>
 
 " 按F2或F3在打开的文件之间切换
 nnoremap <F2> :bn<CR>

@@ -1,3 +1,4 @@
+DISABLE_AUTO_UPDATE="true"
 ZSH_DISABLE_COMPFIX=true
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -103,40 +104,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.oh-my-zsh/plugins/incr/incr*.zsh
 
-
-# solve 'Could not open a connection to your authentication agent.'
-# {
-# eval `ssh-agent -s`
-# ssh-add /home/julian/.ssh/github_zfhxi
-# } &> /home/julian/AppLogs/ssh-agent.log
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-function condainit(){
-    __conda_setup="$('/opt/anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-    if [ $? -eq 0 ]; then
-        eval "$__conda_setup"
-    else
-        if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
-            . "/opt/anaconda/etc/profile.d/conda.sh"
-        else
-            export PATH="/opt/anaconda/bin:$PATH"
-        fi
-    fi
-    unset __conda_setup
-}
-# <<< conda initialize <<<
-
 export VISUAL="vim"
 
 # user's alias
-alias smboff="sudo systemctl stop smb.service"
-alias smbon="sudo systemctl start smb.service"
-alias cls="printf \"\033c\""
-alias guion="nvidia-xrun awesome"
+#alias smboff="sudo systemctl stop smb.service"
+#alias smbon="sudo systemctl start smb.service"
+alias cls='printf "\033c"'
 alias byview="xrandr --output HDMI-0 --auto --left-of eDP-1-1"
 alias byviewc="xrandr --output HDMI-0 --auto --same-as eDP-1-1"
-alias vmon="sudo systemctl start vmware.service  vmware-usbarbitrator.service vmware-workstation-server.service"
-alias vmoff="sudo systemctl stop vmware.service  vmware-usbarbitrator.service vmware-workstation-server.service"
-alias vmstat="systemctl status vmware.service  vmware-usbarbitrator.service vmware-workstation-server.service"
-alias refreshmirror="sudo reflector --verbose -l 5 --sort rate --save /etc/pacman.d/mirrorlist"
+alias gitsetproxy="git config --global http.proxy 'socks5://127.0.0.1:7891'"
+alias gitunsetproxy="git config --global --unset http.proxy"
