@@ -4,23 +4,18 @@ Something about my personal configuration on ArchLinux
 The file tree as follow:
 ```
 .
-├── etc
-│   └── X11
-│       ├── xorg.conf_HDMI
-│       └── xorg.conf_original
 ├── home
-│   └── user
-│       ├── _clang-format
-│       ├── _config
-│       │   ├── awesome
-│       │   └── awesome_v1.0
-│       ├── _nvidia-xinitrc
-│       ├── _pam_environment
-│       ├── _vimrc
-│       ├── _xinitrc
-│       ├── _Xresource
-│       ├── _ycm_extra_conf.py
-│       └── _zshrc
+│   └── user
+│       ├── agnosterzak.zsh-theme
+│       ├── _clang-format
+│       ├── _config
+│       │   └── awesome
+│       ├── _pam_environment
+│       ├── _vimrc
+│       ├── _xinitrc
+│       ├── _Xresource
+│       ├── _ycm_extra_conf.py
+│       └── _zshrc
 ├── README.md
 └── usr
     └── share
