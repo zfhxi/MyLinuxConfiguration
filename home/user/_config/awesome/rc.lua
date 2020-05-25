@@ -204,9 +204,9 @@ awful.util.myapplicationsmenu = freedesktop.menu.build({
 })
 -- 创建一个favorite子菜单
 myfavoriteapps = {
+    { "Notion", "/opt/julianApps/lotion/Lotion/Lotion" },
     { "Story-Writer", "Story-writer" },
     { "FileMgr", "pcmanfm" },
---    { "Leanote", "leanote" },
 }
 mydeveloptools={
     {"Qt Creator","qtcreator"},
@@ -232,13 +232,13 @@ myenjoyapps = {
 }
 myofficeapps={
 --    { "Telegram", "telegram-desktop" },
+    { "staruml", "/opt/julianApps/staruml/StarUML-3.2.2.AppImage" },
     { "wps","wps"},
     { "Story-Writer", "story-writer" },
---    { "Leanote", "leanote" },
 }
 myinternettools={
     { "Chrome", "google-chrome-stable" },
-    { "clashx", "myclash" },
+    { "clashx", "/opt/julianApps/clash/clashx.sh" },
 }
 mysysopmenu={
     { "Reboot", "reboot" },

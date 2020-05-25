@@ -7,9 +7,7 @@ Plugin 'w0rp/ale'   "ale语法检查
 Plugin 'Valloric/YouCompleteMe' "YCM代码补全
 Plugin 'vim-scripts/winmanager' "文件管理器
 Plugin 'vim-scripts/taglist.vim'    "标签视图
-Plugin 'sickill/vim-monokai'    "主题
 Plugin 'vim-airline/vim-airline'    "airline 状态栏
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Chiel92/vim-autoformat' "代码格式化插件
 Plugin 'Yggdroot/indentLine'    "缩进指示线
 Plugin 'kien/ctrlp.vim'     "文件搜索
@@ -18,7 +16,7 @@ Plugin 'iamcco/markdown-preview.vim' "MarkDown预览
 Plugin 'iamcco/mathjax-support-for-mkdp' "support mathjax
 Plugin 'jiangmiao/auto-pairs'       "括号补全、引号补全
 Plugin 'oplatek/Conque-Shell' "the bash inside vim
-Plugin 'acarapetis/vim-colors-github' "vim theme
+Plugin 'dracula/vim', { 'name': 'dracula' }
 call vundle#end()
 filetype plugin indent on    " 加载vim自带和插件相应的语法和文件类型相关脚本
 
@@ -105,7 +103,7 @@ nmap wm :WMToggle <CR>
 set t_Co=256
 set laststatus=2
 set lazyredraw
-let g:airline_theme="molokai"
+"let g:airline_theme="molokai"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#whitespace#enabled=0   " 关闭空白符检测
@@ -196,12 +194,6 @@ nmap <Leader>c :ConqueTerm bash<CR>
 "other options
 ":ConqueTermSplit :ConqueTermVSplit :ConqueTermTab
 
-
-" Powerline
-"set  rtp+=/usr/lib/python3.7/site-packages/powerline/bindings/vim/
-"set laststatus=2
-"set t_Co=256
-
 " auto run
 map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
@@ -231,9 +223,13 @@ func! CompileRunGcc()
     endif
 endfunc
 
+" 主题设置
+colorscheme dracula
+if !has('gui_running')
+  set t_Co=256
+endif
+
 " 其他
-" colorscheme monokai "设置主题为monokai
-colorscheme github "设置主题为github
 " 设置字符编码
 set encoding=utf-8
 set termencoding=utf-8
@@ -252,9 +248,9 @@ set number
 " 高亮显示当前行
 set cursorline
 " 设置各种缩进
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set autoindent
 set smartindent
 set cindent
@@ -271,9 +267,3 @@ set expandtab
 nnoremap <F2> :bn<CR>
 nnoremap <F3> :bp<CR>
 nmap wc :bd <CR>    "关闭当前标签
-
-"eclim
-"nmap <C-o> :ProjectsTree <CR>
-"nmap <C-l> :ProjectList <CR>
-"nmap <C-n> :ProjectCreate ./ -n java <CR>
-"let g:EclimCompletionMethod = 'omnifunc'
