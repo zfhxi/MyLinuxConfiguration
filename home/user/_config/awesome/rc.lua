@@ -84,7 +84,7 @@ local gui_editor   = "gvim"
 --local scrlocker    = "slock"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "1", "2", "3", "4", "5" }
+awful.util.tagnames = { "1", "2", "3", "4" }
 awful.layout.layouts = {
     awful.layout.suit.tile.left,
     awful.layout.suit.floating,
@@ -176,6 +176,7 @@ lain.layout.cascade.tile.ncol          = 2
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 -- }}}
 
+
 -- {{{ Menu
 local myawesomemenu = {
     { "hotkeys", function() return false, hotkeys_popup.show_help end },
@@ -204,19 +205,14 @@ awful.util.myapplicationsmenu = freedesktop.menu.build({
 })
 -- 创建一个favorite子菜单
 myfavoriteapps = {
-    { "Notion", "/opt/julianApps/lotion/Lotion/Lotion" },
-    { "Story-Writer", "Story-writer" },
+    { "Notion", "notion-app" },
+    { "Story-writer", "/opt/julianApps/Story-writer-linux64/Story-writer" },
     { "FileMgr", "pcmanfm" },
 }
 mydeveloptools={
-    {"Qt Creator","qtcreator"},
---    {"PyCharm", "pycharm" },
---    {"IDEA", "intellij-idea-ultimate-edition" },
-    {"CLion", "clion" },
     {"VsCode", "code" },
-    {"Vivado","myvivado"},
-    {"Xilinx Vitis","myvitis"},
-    {"Xilinx DocNav","mydocnav"},
+    {"pycharm", "pycharm" },
+    {"Intellij-IDEA", "intellij-idea-ultimate-edition" },
 }
 
 mydataanalysistools={
@@ -226,19 +222,22 @@ mydataanalysistools={
 mysystemtools={
 --    {"VM Ware", "vmware" },
     { "FileMgr", "pcmanfm" },
+    { "System Monitor", "deepin-system-monitor" },
 }
 myenjoyapps = {
     { "163Music", "netease-cloud-music" },
+    { "cocomusic", "cocomusic" },
 }
 myofficeapps={
 --    { "Telegram", "telegram-desktop" },
-    { "staruml", "/opt/julianApps/staruml/StarUML-3.2.2.AppImage" },
+--    { "staruml", "/opt/julianApps/staruml/StarUML-3.2.2.AppImage" },
     { "wps","wps"},
-    { "Story-Writer", "story-writer" },
+    { "foxitreader","foxitreader"},
+    {"QQ","qq"},
 }
 myinternettools={
     { "Chrome", "google-chrome-stable" },
-    { "clashx", "/opt/julianApps/clash/clashx.sh" },
+    { "Qv2ray", "/opt/julianApps/Qv2ray/v2rayRun.sh" },
 }
 mysysopmenu={
     { "Reboot", "reboot" },
@@ -250,10 +249,10 @@ awful.util.mymainmenu = awful.menu({ items = {
     -- 添加Favorite菜单，并将icon设置为theme.fav_icon
     {"Favorite", myfavoriteapps},
     {"Develop",mydeveloptools},
-    {"System",mysystemtools},
-    {"DataAnalysis",mydataanalysistools},
     {"Office", myofficeapps},
     {"Enjoy", myenjoyapps},
+    {"DataAnalysis",mydataanalysistools},
+    {"System",mysystemtools},
     {"Internet",myinternettools},
     {"Power",mysysopmenu},
 }
@@ -310,8 +309,8 @@ awful.key({ altkey }, "p", function() os.execute("screenshot") end,
 {description = "take a screenshot", group = "hotkeys"}),
 
 -- X screen locker
-awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
-{description = "lock screen", group = "hotkeys"}),
+--awful.key({ altkey,modkey }, "l", function () os.execute(scrlocker) end,
+--{description = "lock screen", group = "hotkeys"}),
 
 -- Hotkeys
 awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
@@ -597,7 +596,7 @@ function ()
 end,
 --DIY key bindings
 {description = "lua execute prompt", group = "awesome"}),
-awful.key({ "Mod1", "Control" }, "l",
+awful.key({ "Mod1","Mod4", "Control" }, "l",
 function ()
     awful.util.spawn("gnome-screensaver-command --lock")
 end),
@@ -721,6 +720,7 @@ end)
 root.keys(globalkeys)
 -- }}}
 
+awful.tag.add("5",{layout=awful.layout.suit.floating})
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
@@ -745,7 +745,8 @@ awful.rules.rules = {
     -- Set Firefox to always map on the first tag on screen 1.
     { rule = { class = "Firefox" },
     properties = { screen = 1, tag = awful.util.tagnames[1] } },
-
+    { rule = { class = "Wine" },
+    properties = { tag = "5"} },
     { rule = { class = "Gimp", role = "gimp-image-window" },
     properties = { maximized = true } },
 }
@@ -838,6 +839,7 @@ run_once("xcompmgr")
 run_once("optimus-manager-qt")
 run_once("volumeicon")
 run_once("mate-power-manager")
+--run_once("/usr/lib/cinnamon-settings-daemon/csd-xsettings > /home/julian/AppLogs/csd-settings.log 2>&1")
 
 function sleep(n)
    os.execute("sleep " .. n)
