@@ -206,7 +206,7 @@ awful.util.myapplicationsmenu = freedesktop.menu.build({
 -- 创建一个favorite子菜单
 myfavoriteapps = {
     { "Notion", "notion-app" },
-    { "Story-writer", "/opt/julianApps/Story-writer-linux64/Story-writer" },
+    {"typora","typora"},
     { "FileMgr", "pcmanfm" },
 }
 mydeveloptools={
