@@ -126,6 +126,21 @@ function start-awesome(){
   cp /home/julian/.awesome-xinitrc /home/julian/.xinitrc
   startx
 }
+function toamax(){
+  scp -r $(realpath $1) amax:/home/chenzhongming
+}
+function fromamax(){
+  scp -r amax:/home/chenzhongming/$1 ./
+}
+function tok80(){
+  scp -r $(realpath $1) k80:/home/czm
+}
+function fromk80(){
+  scp -r k80:/home/czm/$1 ./
+}
+function absfromamax(){
+  scp -r amax:$1 ./
+}
 
 export TERM=xterm-256color
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
@@ -133,4 +148,7 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 alias cls='printf "\033c"'
 alias pyc='proxychains4'
 alias guion='nvidia-xrun awesome'
-alias py36='conda activate py36onserver'
+alias py36='conda activate py36'
+alias gs='gpustat'
+alias csd='/usr/lib/cinnamon-settings-daemon/csd-xsettings'
+

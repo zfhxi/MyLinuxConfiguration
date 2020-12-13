@@ -208,6 +208,7 @@ myfavoriteapps = {
     { "Notion", "notion-app" },
     {"typora","typora"},
     { "FileMgr", "pcmanfm" },
+    { "boost-note-bin", "boostnote" },
 }
 mydeveloptools={
     {"VsCode", "code" },
@@ -220,7 +221,7 @@ mydataanalysistools={
 }
 
 mysystemtools={
---    {"VM Ware", "vmware" },
+    {"VM Ware", "vmware" },
     { "FileMgr", "pcmanfm" },
     { "System Monitor", "deepin-system-monitor" },
 }
@@ -237,7 +238,9 @@ myofficeapps={
 }
 myinternettools={
     { "Chrome", "google-chrome-stable" },
-    { "Qv2ray", "/opt/julianApps/Qv2ray/v2rayRun.sh" },
+--    { "Qv2ray", "/opt/julianApps/Qv2ray/v2rayRun.sh" },
+--    { "ByWave", "/opt/julianApps/ByWave/bywave.sh" },
+    { "v2raya", "/opt/julianApps/ByWave/qv2raya.sh" },
 }
 mysysopmenu={
     { "Reboot", "reboot" },
@@ -324,10 +327,10 @@ awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
 {description = "go back", group = "tag"}),
 
 -- Non-empty tag browsing
-awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end,
-{description = "view  previous nonempty", group = "tag"}),
-awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end,
-{description = "view  previous nonempty", group = "tag"}),
+--awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end,
+--{description = "view  previous nonempty", group = "tag"}),
+--awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end,
+--{description = "view  previous nonempty", group = "tag"}),
 
 -- Default client focus
 awful.key({ altkey,           }, "j",
@@ -471,9 +474,9 @@ awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weat
 {description = "show weather", group = "widgets"}),
 
 -- Brightness
-awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
+awful.key({ }, "XF86MonBrightnessUp", function () os.execute("sudo xbacklight -inc 10") end,
 {description = "+10%", group = "hotkeys"}),
-awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
+awful.key({ }, "XF86MonBrightnessDown", function () os.execute("sudo xbacklight -dec 10") end,
 {description = "-10%", group = "hotkeys"}),
 
 -- ALSA volume control
@@ -839,6 +842,7 @@ run_once("xcompmgr")
 run_once("optimus-manager-qt")
 run_once("volumeicon")
 run_once("mate-power-manager")
+run_once("/usr/bin/libinput-gestures")
 --run_once("/usr/lib/cinnamon-settings-daemon/csd-xsettings > /home/julian/AppLogs/csd-settings.log 2>&1")
 
 function sleep(n)
@@ -846,3 +850,4 @@ function sleep(n)
 end
 sleep(1)
 run_once("xrandr --output HDMI-0 --auto --left-of eDP-1-1")
+run_once("sudo xbacklight -set 70")
